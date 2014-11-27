@@ -64,7 +64,7 @@ public class ChessPanel extends JPanel{
 			colorGrid++;
 		}
 
-		g2.fill(chessGrid[0][0]);
+		//g2.fill(chessGrid[0][0]);
 		//g2.drawString(this.getHeight() + " " + this.getWidth(), 100, 100);
 	}
 
