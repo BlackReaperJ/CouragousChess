@@ -15,7 +15,7 @@ public class ChessPanel extends JPanel{
 	private final int GRID = 8;//Chess Grid 8 by 8
 	private final int START_POINTX = 0;//Starting point of grid location
 	private final int START_POINTY = 0;
-	private double END_POINTX = this.getHeight() / 8;
+	//private double END_POINTX = this.getHeight() / 8;
 	private double END_POINTY = this.getWidth() / 8;
 
 	private double locationX;
