@@ -1,12 +1,16 @@
 package chessPieces;
 
 abstract public class ChessPiece implements ChessAttributes{
-	protected static int xPos = 0 ;
-	protected static int yPos = 0;
+	private int xPos;
+	private int yPos;
+	private String name;
+	private String color;
 	
-	public ChessPiece(int xPos, int yPos){
+	public ChessPiece(int xPos, int yPos, String name, String color){
 		this.xPos = xPos;
 		this.yPos = yPos;
+		this.name = name;
+		this.color = color;
 	}
 	
 	public int getX(){
@@ -15,5 +19,13 @@ abstract public class ChessPiece implements ChessAttributes{
 	
 	public int getY(){
 		return yPos;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public String getColor(){
+		return color;
 	}
 }

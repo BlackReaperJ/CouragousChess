@@ -8,4 +8,7 @@ public interface ChessAttributes {
 	void draw(Graphics2D g2);
 	int getX();
 	int getY();
+	String getName();
+	String getColor();
+	//Have to add set methods
 }
