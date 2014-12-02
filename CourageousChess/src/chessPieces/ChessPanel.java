@@ -99,10 +99,11 @@ public class ChessPanel extends JPanel{
 			for(ChessAttributes piece: chess)
 				if(selectedX == piece.getX() && selectedY == piece.getY()){
 					System.out.println(piece.getName());
-					nextMoveSet = piece.nextMoveSet();
+					nextMoveSet = piece.nextMoveSet(chess, chessGrid);
 				}
-			//for(Rectangle rect: nextMoveSet)
-			//	g2.fill(rect);
+			if(nextMoveSet != null)
+				for(Rectangle rect: nextMoveSet)
+					g2.fill(rect);
 		}
 		
 		g2.setColor(Color.RED);

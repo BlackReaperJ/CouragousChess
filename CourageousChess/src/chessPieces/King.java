@@ -23,7 +23,7 @@ public class King extends ChessPiece{
 		
 	}
 	
-	public ArrayList<Rectangle> nextMoveSet() {
+	public ArrayList<Rectangle> nextMoveSet(ArrayList<ChessAttributes> chess, Rectangle [][] chessGrid) {
 		return null;
 	}
 

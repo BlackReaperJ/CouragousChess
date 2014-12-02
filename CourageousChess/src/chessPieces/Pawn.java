@@ -23,7 +23,7 @@ public class Pawn extends ChessPiece{
 	public void draw(Graphics2D g2) {
 	}
 	
-	public ArrayList<Rectangle> nextMoveSet() {
+	public ArrayList<Rectangle> nextMoveSet(ArrayList<ChessAttributes> chess, Rectangle [][] chessGrid) {
 		return null;
 	}
 }

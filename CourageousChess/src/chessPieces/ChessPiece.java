@@ -1,5 +1,7 @@
 package chessPieces;
 
+import java.util.ArrayList;
+
 abstract public class ChessPiece implements ChessAttributes{
 	protected int xPos;
 	protected int yPos;
@@ -35,5 +37,12 @@ abstract public class ChessPiece implements ChessAttributes{
 	
 	public void setY(int y){
 		yPos = y;
+	}
+	
+	public ChessAttributes getChessPiece(ArrayList<ChessAttributes> chess, int x, int y){
+		for(ChessAttributes c: chess)
+			if(c.getX() == x && c.getY() == y)
+				return c;
+		return null;
 	}
 }

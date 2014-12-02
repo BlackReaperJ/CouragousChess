@@ -14,6 +14,7 @@ public interface ChessAttributes {
 	String getColor();
 	void setX(int x);
 	void setY(int y);
-	ArrayList<Rectangle> nextMoveSet();
+	ArrayList<Rectangle> nextMoveSet(ArrayList<ChessAttributes> chess, Rectangle [][] chessGrid);
+	ChessAttributes getChessPiece(ArrayList<ChessAttributes> chess, int x, int y);
 	//Have to add set methods
 }
