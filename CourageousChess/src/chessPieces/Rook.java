@@ -1,6 +1,8 @@
 package chessPieces;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.util.ArrayList;
 
 public class Rook extends ChessPiece{
 
@@ -20,5 +22,8 @@ public class Rook extends ChessPiece{
 	public void draw(Graphics2D g2) {
 		
 	}
-
+	
+	public ArrayList<Rectangle> nextMoveSet() {
+		return null;
+	}
 }

@@ -1,6 +1,8 @@
 package chessPieces;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.util.ArrayList;
 
 public class Knight extends ChessPiece{
 
@@ -10,7 +12,7 @@ public class Knight extends ChessPiece{
 	}
 
 	public void move() {
-
+		
 	}
 
 	public boolean collide(ChessAttributes other) {
@@ -19,6 +21,11 @@ public class Knight extends ChessPiece{
 
 	public void draw(Graphics2D g2) {
 		
+	}
+
+	public ArrayList<Rectangle> nextMoveSet() {
+		System.out.println(xPos + " " + yPos);
+		return null;
 	}
 
 }

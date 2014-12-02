@@ -1,6 +1,8 @@
 package chessPieces;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.util.ArrayList;
 
 public interface ChessAttributes {
 	void move(); 
@@ -10,5 +12,8 @@ public interface ChessAttributes {
 	int getY();
 	String getName();
 	String getColor();
+	void setX(int x);
+	void setY(int y);
+	ArrayList<Rectangle> nextMoveSet();
 	//Have to add set methods
 }

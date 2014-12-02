@@ -26,13 +26,13 @@ public class ChessFrame extends JFrame {
 			public void componentResized(ComponentEvent arg0) {
 				int newsize = Math.min(getWidth(), getHeight());
 				setSize(newsize,newsize);
-				repaint();
 			}
 
 			public void componentShown(ComponentEvent arg0) {}
 			
 		}
 		addComponentListener(new ResizeListener());
+		repaint();
 	}
 	
 	public void createPanel(){
