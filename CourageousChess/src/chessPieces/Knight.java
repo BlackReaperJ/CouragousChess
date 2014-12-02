@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Knight extends ChessPiece{
 	private int [] paths = {-1,-2, 1, -2, 2, -1, 2, 1, 1, 2, -1, 2, -2, 1, -2, -1};
 	private ArrayList<Rectangle> nextPaths;
-	private Rectangle rect; 
 	
 	public Knight(int x, int y, String name, String color) {
 		super(x,y, name, color);

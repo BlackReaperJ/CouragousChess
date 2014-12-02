@@ -102,8 +102,12 @@ public class ChessPanel extends JPanel{
 					nextMoveSet = piece.nextMoveSet(chess, chessGrid);
 				}
 			if(nextMoveSet != null)
-				for(Rectangle rect: nextMoveSet)
+				for(Rectangle rect: nextMoveSet){
+					g2.setColor(Color.CYAN);
 					g2.fill(rect);
+					g2.setColor(Color.BLACK);
+					g2.draw(rect);
+				}
 		}
 		
 		g2.setColor(Color.RED);
