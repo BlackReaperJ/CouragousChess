@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -15,12 +14,10 @@ public class ChessPanel extends JPanel{
 
 	private ArrayList<ChessAttributes> chess;
 	private ChessAttributes selected;
-	private ArrayList<Rectangle> nextMoveSet;
 
 	private final int GRID = 8;//Chess Grid 8 by 8
 	private double gridSize = Math.min(this.getWidth(), this.getHeight()) / 8;//The size of each square on grid
 
-	private int selectedX = -1, selectedY = -1;
 	private boolean select = false;
 
 	public ChessPanel(ArrayList<ChessAttributes> chess) {
@@ -31,8 +28,8 @@ public class ChessPanel extends JPanel{
 			public void mousePressed(MouseEvent event){
 				int x = event.getX();
 				int y = event.getY();
-				selected = null;
 				if(!select){
+					System.out.println("Select is fALSE");
 					for(ChessAttributes piece: chess){
 						if(piece.contains(x, y) && !(piece.getName().equals("Blank"))){
 							selected = piece;
@@ -42,17 +39,40 @@ public class ChessPanel extends JPanel{
 					}
 				}
 				else if(select){
+					System.out.println("Select is true");
 					for(ChessAttributes piece: chess){
 						if(piece.contains(x, y)){
 							if(piece.getSelected()){
-								
+								if(piece.getX() ==  selected.getX() && piece.getY() == selected.getY()){
+									System.out.println("1.");
+									selected = null;
+									select = false;
+									for(ChessAttributes c: chess){
+										c.setSelected(false);
+									}
+									break;
+								}
+								else{
+									System.out.println("4.");
+								    
+									selected.swapInfo(piece);
+									selected = null;
+									select = false;
+									
+									for(ChessAttributes c: chess){
+										c.setSelected(false);
+									}
+									break;
+								}
 							}
 							else{
+								System.out.println("2.");
 								selected = null;
 								for(ChessAttributes c: chess){
 									c.setSelected(false);
 								}
 								if(piece.getColor().equals("Blank")){
+									System.out.println("3.");
 									select = false;
 									break;
 								}
@@ -83,15 +103,17 @@ public class ChessPanel extends JPanel{
 
 		g2.setColor(Color.RED);
 		for(ChessAttributes piece: chess){
-			if(!(piece.getName().equals("Blank")))
-				g2.drawString(piece.getName(), (int)(piece.getX() * gridSize + 0.5 * gridSize), (int)(piece.getY() * gridSize + 0.5 * gridSize));
-		}
-		
-		for(ChessAttributes piece: chess){
-			if(piece.getName().equals("Knight")){
-				System.out.println("Knight: " + piece.getX() +"," + piece.getY() +" " +  piece.getColor());
+			if(!(piece.getName().equals("Blank"))){
+				g2.drawString(piece.getColor(), (int)(piece.getX() * gridSize + 0.5 * gridSize), (int)(piece.getY() * gridSize + 0.5 * gridSize));
+				g2.drawString(piece.getName(), (int)(piece.getX() * gridSize + 0.5 * gridSize), (int)(piece.getY() * gridSize + 0.66 * gridSize));
 			}
 		}
+		
+		//for(ChessAttributes piece: chess){
+		//	if(piece.getName().equals("Knight")){
+		//		System.out.println("Knight: " + piece.getX() +"," + piece.getY() +" " +  piece.getColor());
+		//	}
+		//}
 
 	}
 

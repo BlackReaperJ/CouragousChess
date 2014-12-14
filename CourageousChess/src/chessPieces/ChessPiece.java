@@ -42,12 +42,28 @@ abstract public class ChessPiece implements ChessAttributes{
 		return color;
 	}
 	
+	public String getGridColor(){
+		return gridColor;
+	}
+	
 	public void setX(int x){
 		xPos = x;
 	}
 	
 	public void setY(int y){
 		yPos = y;
+	}
+	
+	public void setName(String name){
+		this.name = name;
+	}
+	
+	public void setColor(String color){
+		this.color = color;
+	}
+	
+	public void setGridColor(String gridColor){
+		this.gridColor = gridColor;
 	}
 	
 	public ChessAttributes getChessPiece(ArrayList<ChessAttributes> chess, int x, int y){
@@ -87,5 +103,22 @@ abstract public class ChessPiece implements ChessAttributes{
 	
 	public boolean getSelected(){
 		return selected;
+	}
+	
+	public void swapInfo(ChessAttributes piece){
+		int newX = piece.getX();
+		int newY = piece.getY();
+		String newGridColor = piece.getGridColor();
+		
+		piece.setX(this.getX());
+		piece.setY(this.getY());
+		piece.setGridColor(this.getGridColor());
+		piece.setName("Blank");
+		piece.setColor("Blank");
+		
+		this.setX(newX);
+		this.setY(newY);
+		this.setGridColor(newGridColor);
+		System.out.println(this.getX() + " " + this.getY() + " " + this.getGridColor());
 	}
 }

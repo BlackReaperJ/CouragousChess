@@ -13,11 +13,16 @@ public interface ChessAttributes {
 	int getY();
 	String getName();
 	String getColor();
+	String getGridColor();
 	void setX(int x);
 	void setY(int y);
+	void setName(String name);
+	void setColor(String color);
+	void setGridColor(String gridColor);
 	void setSelected(boolean selected);
 	boolean getSelected();
 	ArrayList<ChessAttributes> nextMoveSet(ArrayList<ChessAttributes> chess);
 	ChessAttributes getChessPiece(ArrayList<ChessAttributes> chess, int x, int y);
+	void swapInfo(ChessAttributes piece);
 	//Have to add set methods
 }

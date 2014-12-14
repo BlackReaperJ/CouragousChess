@@ -67,13 +67,13 @@ public class ChessGrid {
 		//Adds Queens to the chess board
 		queen = new Queen(3,0,"Queen","Black","Black");
 		chess.add(queen);
-		queen = new Queen(3,7,"Queen","Black","White");
+		queen = new Queen(3,7,"Queen","White","White");
 		chess.add(queen);
 		
 		//Adds Kings to the chess board
 		king = new King(4,0,"King","Black","White");
 		chess.add(king);
-		king = new King(4,7,"King","Black","Black");
+		king = new King(4,7,"King","White","Black");
 		chess.add(king);
 		
 		//Add Blanks on the Chess Board

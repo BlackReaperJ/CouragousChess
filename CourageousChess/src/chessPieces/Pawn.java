@@ -1,14 +1,13 @@
 package chessPieces;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public class Pawn extends ChessPiece{
 	private int nextX = 0;
 	private int nextY = 0;
-	
+	private boolean moveUp;
+
 	public Pawn(int x, int y, String name, String color, String gridColor) {
 		super(x,y, name, color, gridColor);
 		System.out.println(x + " " + y + " " + name + " " + color +" grid: " + gridColor);
@@ -33,8 +32,10 @@ public class Pawn extends ChessPiece{
 			nextY = yPos -1;
 			if(nextY >= 0){//Moving By one Space up
 				ChessAttributes piece = getChessPiece(chess,xPos, nextY);//Finds the chess piece at the next location 
-				if(piece.getColor().equals("Blank"))
+				if(piece.getColor().equals("Blank")){
 					piece.setSelected(true);
+					moveUp = true;
+				}
 				
 				nextX = xPos -1;
 				if(nextX >=0)//Going Diagonally Left
@@ -51,7 +52,7 @@ public class Pawn extends ChessPiece{
 				if(yPos == 6){//Start of a pawn as it can go 2 spaces up
 					nextY = yPos -2;
 				    piece = getChessPiece(chess,xPos, nextY);
-				    if(piece.getColor().equals("Blank"))
+				    if(piece.getColor().equals("Blank") && moveUp)
 						piece.setSelected(true);
 				}
 			}
@@ -61,9 +62,11 @@ public class Pawn extends ChessPiece{
 			nextY = yPos +1;
 			if(nextY <= 7){//Moving By one Space down
 				ChessAttributes piece = getChessPiece(chess,xPos, nextY);
-				if(piece.getColor().equals("Blank"))
+				if(piece.getColor().equals("Blank")){
 					piece.setSelected(true);
-	
+					moveUp = true;
+				}
+				
 				nextX = xPos -1;
 				if(nextX >=0)//Going Diagonally Left
 					piece = getChessPiece(chess,nextX,nextY);
@@ -79,7 +82,7 @@ public class Pawn extends ChessPiece{
 				if(yPos == 1){//Start of a pawn as it can go 2 spaces down
 					nextY = yPos + 2;
 				    piece = getChessPiece(chess,xPos, nextY);
-					if(piece.getColor().equals("Blank"))
+					if(piece.getColor().equals("Blank") && moveUp)
 						piece.setSelected(true);
 				}
 			}
