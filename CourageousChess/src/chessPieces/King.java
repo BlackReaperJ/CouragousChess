@@ -5,7 +5,9 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public class King extends ChessPiece{
-
+	
+	private int [] paths = {-1,-1, -1, 1, 1, -1, 1, 1, 0, -1, 0, 1, 1, 0, -1, 0};
+	
 	public King(int x, int y, String name, String color, String gridColor) {
 		super(x,y, name, color, gridColor);
 		System.out.println(x + " " + y + " " + name + " " + color+" grid: " + gridColor);
@@ -24,6 +26,19 @@ public class King extends ChessPiece{
 	}
 	
 	public ArrayList<ChessAttributes> nextMoveSet(ArrayList<ChessAttributes> chess) {
+		this.setSelected(true);
+		for(int i=0; i<paths.length; i+=2){
+			int nextX = xPos + paths[i];
+			int nextY = yPos + paths[i+1];
+			if(nextX >= 0 && nextX <= 7 && nextY >= 0 && nextY <= 7){
+				ChessAttributes piece = getChessPiece(chess,nextX, nextY);
+					if(!(this.getColor().equals(piece.getColor())) || piece.getColor().equals("Blank")){
+						piece.setSelected(true);
+						System.out.println(this.getColor()+ " " + piece.getColor()+ " " +nextX + " " + nextY);
+					}
+			}
+		}
+		System.out.println(name);
 		return chess;
 	}
 

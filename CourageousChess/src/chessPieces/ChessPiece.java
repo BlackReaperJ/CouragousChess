@@ -87,7 +87,6 @@ abstract public class ChessPiece implements ChessAttributes{
 		
 		g2.setColor(Color.BLACK);
 		g2.draw(grid);
-		
 	}
 	
 	public boolean contains(int x, int y){

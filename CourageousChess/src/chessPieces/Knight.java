@@ -37,7 +37,6 @@ public class Knight extends ChessPiece{
 					}
 			}
 		}
-		System.out.println(name);
 		return chess;
 	}
 
