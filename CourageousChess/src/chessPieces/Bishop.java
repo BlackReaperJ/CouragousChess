@@ -35,8 +35,8 @@ public class Bishop extends ChessPiece {
 	public ArrayList<ChessAttributes> nextMoveSet(ArrayList<ChessAttributes> chess, int currentX, int currentY, int moveX, int moveY) {
 		nextX = currentX + moveX;
 		nextY = currentY + moveY;
-		System.out.println("I am here");
 		ChessAttributes piece = getChessPiece(chess,nextX, nextY);
+		
 		if(nextX >= 0 && nextX <= 7 && nextY >= 0 && nextY <= 7){
 			if(this.getColor().equals(piece.getColor()))
 				return chess;
