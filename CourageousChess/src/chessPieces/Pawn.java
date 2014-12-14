@@ -1,17 +1,17 @@
 package chessPieces;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public class Pawn extends ChessPiece{
-	private ArrayList<Rectangle> nextPaths;
 	private int nextX = 0;
 	private int nextY = 0;
 	
-	public Pawn(int x, int y, String name, String color) {
-		super(x,y, name, color);
-		System.out.println(x + " " + y + " " + name + " " + color);
+	public Pawn(int x, int y, String name, String color, String gridColor) {
+		super(x,y, name, color, gridColor);
+		System.out.println(x + " " + y + " " + name + " " + color +" grid: " + gridColor);
 	}
 
 
@@ -23,36 +23,36 @@ public class Pawn extends ChessPiece{
 		return false;
 	}
  
-	public void draw(Graphics2D g2) {
+	public void draw(Graphics2D g2, int gridSize) {
+		super.draw(g2, gridSize);
 	}
 	
-	public ArrayList<Rectangle> nextMoveSet(ArrayList<ChessAttributes> chess, Rectangle [][] chessGrid) {
-		nextPaths = new ArrayList<Rectangle>();
-		
+	public ArrayList<ChessAttributes> nextMoveSet(ArrayList<ChessAttributes> chess) {
+		this.setSelected(true);
 		if(getColor().equals("White")){//White pawns only
 			nextY = yPos -1;
 			if(nextY >= 0){//Moving By one Space up
-				ChessAttributes c = getChessPiece(chess,xPos, nextY);//Finds the chess piece at the next location 
-				if(c == null)
-					nextPaths.add(chessGrid[xPos][nextY]);
-	
+				ChessAttributes piece = getChessPiece(chess,xPos, nextY);//Finds the chess piece at the next location 
+				if(piece.getColor().equals("Blank"))
+					piece.setSelected(true);
+				
 				nextX = xPos -1;
 				if(nextX >=0)//Going Diagonally Left
-					c = getChessPiece(chess,nextX,nextY);
-					if(c != null && c.getColor().equals("Black"))
-						nextPaths.add(chessGrid[nextX][nextY]);
+					piece = getChessPiece(chess,nextX,nextY);
+					if(piece.getColor().equals("Black"))
+						piece.setSelected(true);
 					
 				nextX = xPos +1; 
 				if(nextX <=7)//Going Diagonally Right
-					c = getChessPiece(chess,nextX,nextY);
-					if(c != null && c.getColor().equals("Black"))
-						nextPaths.add(chessGrid[nextX][nextY]);
+					piece = getChessPiece(chess,nextX,nextY);
+					if(piece.getColor().equals("Black"))
+						piece.setSelected(true);
 					
 				if(yPos == 6){//Start of a pawn as it can go 2 spaces up
 					nextY = yPos -2;
-				    c = getChessPiece(chess,xPos, nextY);
-					if(c == null)
-						nextPaths.add(chessGrid[xPos][nextY]);
+				    piece = getChessPiece(chess,xPos, nextY);
+				    if(piece.getColor().equals("Blank"))
+						piece.setSelected(true);
 				}
 			}
 		}
@@ -60,31 +60,31 @@ public class Pawn extends ChessPiece{
 		if(getColor().equals("Black")){//Black Pawns Only
 			nextY = yPos +1;
 			if(nextY <= 7){//Moving By one Space down
-				ChessAttributes c = getChessPiece(chess,xPos, nextY);
-				if(c == null)
-					nextPaths.add(chessGrid[xPos][nextY]);
+				ChessAttributes piece = getChessPiece(chess,xPos, nextY);
+				if(piece.getColor().equals("Blank"))
+					piece.setSelected(true);
 	
 				nextX = xPos -1;
 				if(nextX >=0)//Going Diagonally Left
-					c = getChessPiece(chess,nextX,nextY);
-					if(c != null && c.getColor().equals("White"))
-						nextPaths.add(chessGrid[nextX][nextY]);
+					piece = getChessPiece(chess,nextX,nextY);
+					if(piece.getColor().equals("White"))
+						piece.setSelected(true);
 					
 				nextX = xPos +1; 
 				if(nextX <=7)//Going Diagonally Right
-					c = getChessPiece(chess,nextX,nextY);
-					if(c != null && c.getColor().equals("White"))
-						nextPaths.add(chessGrid[nextX][nextY]);
+					piece = getChessPiece(chess,nextX,nextY);
+					if(piece.getColor().equals("White"))
+						piece.setSelected(true);
 					
 				if(yPos == 1){//Start of a pawn as it can go 2 spaces down
 					nextY = yPos + 2;
-				    c = getChessPiece(chess,xPos, nextY);
-					if(c == null)
-						nextPaths.add(chessGrid[xPos][nextY]);
+				    piece = getChessPiece(chess,xPos, nextY);
+					if(piece.getColor().equals("Blank"))
+						piece.setSelected(true);
 				}
 			}
 		}
-		System.out.println(nextPaths);
-		return nextPaths;
+		System.out.println(name);
+		return chess;
 	}
 }

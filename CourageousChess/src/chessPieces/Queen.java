@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 public class Queen extends ChessPiece{
 
-	public Queen(int x, int y, String name, String color) {
-		super(x,y, name, color);
-		System.out.println(x + " " + y + " " + name + " " + color);
+	public Queen(int x, int y, String name, String color, String gridColor) {
+		super(x,y, name, color, gridColor);
+		System.out.println(x + " " + y + " " + name + " " + color+" grid: " + gridColor);
 	}
 	
 	public void move() {
@@ -19,11 +19,11 @@ public class Queen extends ChessPiece{
 		return false;
 	}
 
-	public void draw(Graphics2D g2) {
-		
+	public void draw(Graphics2D g2, int gridSize) {
+		super.draw(g2, gridSize);
 	}
 	
-	public ArrayList<Rectangle> nextMoveSet(ArrayList<ChessAttributes> chess, Rectangle [][] chessGrid) {
-		return null;
+	public ArrayList<ChessAttributes> nextMoveSet(ArrayList<ChessAttributes> chess) {
+		return chess;
 	}
 }
