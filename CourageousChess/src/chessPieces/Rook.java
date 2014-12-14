@@ -41,7 +41,7 @@ public class Rook extends ChessPiece{
 		if(nextX >= 0 && nextX <= 7 && nextY >= 0 && nextY <= 7){
 			if(this.getColor().equals(piece.getColor()))
 				return chess;
-			else if(!(this.getColor().equals(piece.getColor())) &&  !(piece.getColor().equals("Blank"))){
+			else if(!(this.getColor().equals(piece.getColor())) && !(piece.getColor().equals("Blank"))){
 				piece.setSelected(true);
 				return chess;
 			}

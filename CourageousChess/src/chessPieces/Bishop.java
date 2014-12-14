@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class Bishop extends ChessPiece {
+	
 	private int [] paths = {-1,-1, -1, 1, 1, -1, 1, 1};
 	private int nextX, nextY;
 
@@ -40,7 +41,7 @@ public class Bishop extends ChessPiece {
 		if(nextX >= 0 && nextX <= 7 && nextY >= 0 && nextY <= 7){
 			if(this.getColor().equals(piece.getColor()))
 				return chess;
-			else if(!(this.getColor().equals(piece.getColor())) &&  !(piece.getColor().equals("Blank"))){
+			else if(!(this.getColor().equals(piece.getColor())) && !(piece.getColor().equals("Blank"))){
 				piece.setSelected(true);
 				return chess;
 			}

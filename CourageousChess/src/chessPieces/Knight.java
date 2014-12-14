@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class Knight extends ChessPiece{
+	
 	private int [] paths = {-1,-2, 1, -2, 2, -1, 2, 1, 1, 2, -1, 2, -2, 1, -2, -1};
 	
 	public Knight(int x, int y, String name, String color, String gridColor) {

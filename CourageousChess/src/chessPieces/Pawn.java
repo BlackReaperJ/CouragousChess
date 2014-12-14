@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class Pawn extends ChessPiece{
+	
 	private int nextX = 0;
 	private int nextY = 0;
 	private boolean moveUp;
