@@ -1,7 +1,6 @@
 package chessPieces;
 
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public interface ChessAttributes {
@@ -14,15 +13,19 @@ public interface ChessAttributes {
 	String getName();
 	String getColor();
 	String getGridColor();
+	boolean getCheck();
 	void setX(int x);
 	void setY(int y);
 	void setName(String name);
 	void setColor(String color);
 	void setGridColor(String gridColor);
 	void setSelected(boolean selected);
+	void setCheck(boolean check);
 	boolean getSelected();
 	ArrayList<ChessAttributes> nextMoveSet(ArrayList<ChessAttributes> chess);
 	ChessAttributes getChessPiece(ArrayList<ChessAttributes> chess, int x, int y);
 	void swapInfo(ChessAttributes piece);
+	void kingCheck(ArrayList<ChessAttributes> chess);
+	void kingCheck(ChessAttributes c, ChessAttributes piece);
 	//Have to add set methods
 }

@@ -1,7 +1,6 @@
 package chessPieces;
 
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public class Rook extends ChessPiece{
@@ -43,6 +42,7 @@ public class Rook extends ChessPiece{
 				return chess;
 			else if(!(this.getColor().equals(piece.getColor())) && !(piece.getColor().equals("Blank"))){
 				piece.setSelected(true);
+				kingCheck(this.getChessPiece(chess, xPos, yPos),piece);
 				return chess;
 			}
 			else{
