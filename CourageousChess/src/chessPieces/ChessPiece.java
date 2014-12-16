@@ -25,6 +25,7 @@ abstract public class ChessPiece implements ChessAttributes{
 		this.name = name;
 		this.color = color;
 		this.gridColor = gridColor;
+		//System.out.println(xPos + " " + yPos + " " + name + " " + color +" grid: " + gridColor);
 	}
 
 	public int getX(){
@@ -118,21 +119,18 @@ abstract public class ChessPiece implements ChessAttributes{
 		return check;
 	}
 
-	public void swapInfo(ChessAttributes piece){
+	public void swapInfo(ChessAttributes piece, ArrayList<ChessAttributes> chess){
 		int newX = piece.getX();
 		int newY = piece.getY();
 		String newGridColor = piece.getGridColor();
-
-		piece.setX(this.getX());
-		piece.setY(this.getY());
-		piece.setGridColor(this.getGridColor());
-		piece.setName("Blank");
-		piece.setColor("Blank");
+		
+		chess.remove(piece);
+		Blank blank = new Blank(this.getX(),this.getY(),"Blank","Blank",this.getGridColor());
+		chess.add(blank);
 
 		this.setX(newX);
 		this.setY(newY);
 		this.setGridColor(newGridColor);
-		System.out.println(this.getX() + " " + this.getY() + " " + this.getGridColor());
 	}
 
 	public void kingCheck(ArrayList<ChessAttributes> chess){
@@ -145,9 +143,14 @@ abstract public class ChessPiece implements ChessAttributes{
 		for(ChessAttributes piece: chess){
 			if(piece.getCheck()){
 				kingInCheck.add(piece);
-				System.out.println(this.getName() + " " + this.getColor() + " " + this.getGridColor());
 			}
 		}
+		
+		if(kingInCheck != null)
+			for(ChessAttributes piece: kingInCheck)
+				System.out.println(piece.getX() + " " + piece.getY() + piece.getName() + piece.getColor());	
+		else
+			System.out.println("There is None");
 	}
 	
 	public void kingCheck(ChessAttributes c, ChessAttributes piece){

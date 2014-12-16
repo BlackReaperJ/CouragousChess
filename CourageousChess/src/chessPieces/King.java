@@ -9,7 +9,6 @@ public class King extends ChessPiece{
 	
 	public King(int x, int y, String name, String color, String gridColor) {
 		super(x,y, name, color, gridColor);
-		System.out.println(x + " " + y + " " + name + " " + color+" grid: " + gridColor);
 	}
 	
 	public void move() {
@@ -33,11 +32,9 @@ public class King extends ChessPiece{
 				ChessAttributes piece = getChessPiece(chess,nextX, nextY);
 					if(!(this.getColor().equals(piece.getColor())) || piece.getColor().equals("Blank")){
 						piece.setSelected(true);
-						System.out.println(this.getColor()+ " " + piece.getColor()+ " " +nextX + " " + nextY);
 					}
 			}
 		}
-		System.out.println(name);
 		return chess;
 	}
 

@@ -11,7 +11,6 @@ public class Pawn extends ChessPiece{
 
 	public Pawn(int x, int y, String name, String color, String gridColor) {
 		super(x,y, name, color, gridColor);
-		System.out.println(x + " " + y + " " + name + " " + color +" grid: " + gridColor);
 	}
 
 
@@ -97,7 +96,6 @@ public class Pawn extends ChessPiece{
 				}
 			}
 		}
-		System.out.println(name);
 		return chess;
 	}
 }

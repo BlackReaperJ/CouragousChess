@@ -9,7 +9,6 @@ public class Knight extends ChessPiece{
 
 	public Knight(int x, int y, String name, String color, String gridColor) {
 		super(x,y, name, color, gridColor);
-		System.out.println(x + " " + y + " " + name + " " + color+" grid: " + gridColor);
 	}
 
 	public void move() {

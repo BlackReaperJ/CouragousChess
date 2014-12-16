@@ -72,7 +72,7 @@ public class ChessPanel extends JPanel{
 					for(ChessAttributes piece: chess){
 						if(piece.contains(x, y)){
 							if(piece.getSelected()){
-								if(piece.getX() ==  selected.getX() && piece.getY() == selected.getY()){
+								if(piece.getX() ==  selected.getX() && piece.getY() == selected.getY()){//To Deselect the selected piece
 									System.out.println("1.");
 									selected = null;
 									select = false;
@@ -81,12 +81,12 @@ public class ChessPanel extends JPanel{
 									}
 									break;
 								}
-								else{
+								else{//Move the selected chess piece to optional position
 									System.out.println("4.");
 									for(ChessAttributes c: chess){
 										c.setCheck(false);
 									}
-									selected.swapInfo(piece);
+									selected.swapInfo(piece,chess);
 									selected.kingCheck(chess);
 									selected = null;
 									select = false;
@@ -109,7 +109,8 @@ public class ChessPanel extends JPanel{
 									select = false;
 									break;
 								}
-								selected = piece;
+								if(turn %2 ==0 && piece.getColor().equals("White") || turn %2 == 1 && piece.getColor().equals("Black"))
+									selected = piece;
 								break;
 							}
 						}
@@ -156,7 +157,6 @@ public class ChessPanel extends JPanel{
 		
 		if(triangleTimer % 2 == 0)
 			g2.fill(triangle);
-		System.out.println(triangleTimer);
 		//for(ChessAttributes piece: chess){
 		//	if(piece.getName().equals("Knight")){
 		//		System.out.println("Knight: " + piece.getX() +"," + piece.getY() +" " +  piece.getColor());

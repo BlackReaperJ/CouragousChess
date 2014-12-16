@@ -87,8 +87,8 @@ public class ChessGrid {
 			gridColors++;
 		}
 		
-		for(ChessAttributes piece: chess)
-			System.out.println(piece.getX() + " " + piece.getY() + piece.getName() + piece.getColor());	
+		//for(ChessAttributes piece: chess)
+		//	System.out.println(piece.getX() + " " + piece.getY() + piece.getName() + piece.getColor());	
 	}
 	
 	public ArrayList<ChessAttributes> getChessGrid(){
