@@ -6,7 +6,11 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 
 import javax.swing.JPanel;
+import javax.swing.Timer ;
 
+
+import java.awt.event.ActionListener ;
+import java.awt.event.ActionEvent ;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -24,11 +28,24 @@ public class ChessPanel extends JPanel{
 	private boolean select = false;
 	
 	private Polygon triangle;
+	private final int INTERVAL = 450 ;
+	private int triangleTimer = 0;
 	
 	public ChessPanel(ArrayList<ChessAttributes> chess) {
 		this.chess = chess;
 		selected = null;
 				
+		class TriangleTimer implements ActionListener{
+			public void actionPerformed(ActionEvent event){
+				triangleTimer++;
+				triangleTimer = triangleTimer % 2;
+				repaint();
+			}
+		}
+		TriangleTimer listener = new TriangleTimer();
+		final Timer timer = new Timer(INTERVAL,listener);
+		timer.start();
+		
 		class MyListener extends MouseAdapter{
 			public void mousePressed(MouseEvent event){
 				int x = event.getX();
@@ -137,7 +154,9 @@ public class ChessPanel extends JPanel{
 			triangle = new Polygon(xTri, yTriBlack, xTri.length);	
 		}
 		
-		g2.fill(triangle);
+		if(triangleTimer % 2 == 0)
+			g2.fill(triangle);
+		System.out.println(triangleTimer);
 		//for(ChessAttributes piece: chess){
 		//	if(piece.getName().equals("Knight")){
 		//		System.out.println("Knight: " + piece.getX() +"," + piece.getY() +" " +  piece.getColor());

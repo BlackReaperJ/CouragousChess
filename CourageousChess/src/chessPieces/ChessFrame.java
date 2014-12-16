@@ -8,6 +8,8 @@ import javax.swing.JFrame ;
 import javax.swing.JPanel ;
 
 public class ChessFrame extends JFrame {
+
+	private static final long serialVersionUID = 1L;
 	
 	public static final int FRAME_WIDTH = 800;
 	public static final int FRAME_HEIGHT = 800;

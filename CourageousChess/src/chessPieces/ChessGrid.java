@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class ChessGrid {
 	
-	private int xPos = 0, yPos = 0;
 	private ArrayList<ChessAttributes> chess;
 	private String gridColor;
 	private int gridColors = 0;

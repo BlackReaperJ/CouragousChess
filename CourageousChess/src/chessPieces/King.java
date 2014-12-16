@@ -1,7 +1,6 @@
 package chessPieces;
 
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public class King extends ChessPiece{
