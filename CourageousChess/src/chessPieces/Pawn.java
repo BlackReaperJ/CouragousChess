@@ -96,6 +96,7 @@ public class Pawn extends ChessPiece{
 				}
 			}
 		}
+		moveUp = false;
 		return chess;
 	}
 }
