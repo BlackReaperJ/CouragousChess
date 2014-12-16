@@ -12,7 +12,7 @@ abstract public class ChessPiece implements ChessAttributes{
 	protected String color;
 	protected String gridColor;
 	protected int locationX, locationY;
-	protected boolean selected, check;
+	protected boolean selected, check, hasMoved, castle;
 	protected ArrayList<ChessAttributes> kingInCheck,temp;
 
 	private final int START_POINTX = 0;//Starting point of grid location
@@ -25,6 +25,10 @@ abstract public class ChessPiece implements ChessAttributes{
 		this.name = name;
 		this.color = color;
 		this.gridColor = gridColor;
+		this.selected = false;
+		this.check = false;
+		this.hasMoved = false;
+		this.castle = false;
 		//System.out.println(xPos + " " + yPos + " " + name + " " + color +" grid: " + gridColor);
 	}
 
@@ -118,6 +122,14 @@ abstract public class ChessPiece implements ChessAttributes{
 	public boolean getCheck(){
 		return check;
 	}
+	
+	public void setHasMoved(boolean hasMoved){
+		this.hasMoved = hasMoved;
+	}
+
+	public boolean getHasMoved(){
+		return hasMoved;
+	}
 
 	public void swapInfo(ChessAttributes piece, ArrayList<ChessAttributes> chess){
 		int newX = piece.getX();
@@ -131,6 +143,20 @@ abstract public class ChessPiece implements ChessAttributes{
 		this.setX(newX);
 		this.setY(newY);
 		this.setGridColor(newGridColor);
+		this.setHasMoved(true);
+		
+		if(castle && this.getName().equals(("King"))){//This is for castling swaps the rook with a blank
+			ChessAttributes rook = null, swap = null;
+			if(this.getX() == 6){
+				rook = getChessPiece(chess, xPos+1, yPos);
+				swap = getChessPiece(chess, xPos-1, yPos);
+			}
+			else if(this.getX() == 2){
+				rook = getChessPiece(chess, xPos-2, yPos);
+				swap = getChessPiece(chess, xPos+1, yPos);
+			}
+			rook.swapInfo(swap, chess);
+		}
 	}
 
 	public void kingCheck(ArrayList<ChessAttributes> chess){

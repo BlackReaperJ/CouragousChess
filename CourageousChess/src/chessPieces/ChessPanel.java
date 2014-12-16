@@ -35,6 +35,7 @@ public class ChessPanel extends JPanel{
 		this.chess = chess;
 		selected = null;
 				
+		//Creates a flickering Arrow Indicator 
 		class TriangleTimer implements ActionListener{
 			public void actionPerformed(ActionEvent event){
 				triangleTimer++;
@@ -46,6 +47,7 @@ public class ChessPanel extends JPanel{
 		final Timer timer = new Timer(INTERVAL,listener);
 		timer.start();
 		
+		//Mouse Clicks On GUI 
 		class MyListener extends MouseAdapter{
 			public void mousePressed(MouseEvent event){
 				int x = event.getX();

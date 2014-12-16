@@ -14,6 +14,7 @@ public interface ChessAttributes {
 	String getColor();
 	String getGridColor();
 	boolean getCheck();
+	boolean getHasMoved();
 	void setX(int x);
 	void setY(int y);
 	void setName(String name);
@@ -21,6 +22,7 @@ public interface ChessAttributes {
 	void setGridColor(String gridColor);
 	void setSelected(boolean selected);
 	void setCheck(boolean check);
+	void setHasMoved(boolean hasMoved);
 	boolean getSelected();
 	ArrayList<ChessAttributes> nextMoveSet(ArrayList<ChessAttributes> chess);
 	ChessAttributes getChessPiece(ArrayList<ChessAttributes> chess, int x, int y);
