@@ -29,5 +29,6 @@ public interface ChessAttributes {
 	void swapInfo(ChessAttributes piece, ArrayList<ChessAttributes> chess);
 	void kingCheck(ArrayList<ChessAttributes> chess);
 	void kingCheck(ChessAttributes c, ChessAttributes piece);
+	void promote(ArrayList<ChessAttributes> chess, ChessAttributes piece, String promotion);
 	//Have to add set methods
 }

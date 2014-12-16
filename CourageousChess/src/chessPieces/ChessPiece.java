@@ -1,9 +1,18 @@
 package chessPieces;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 abstract public class ChessPiece implements ChessAttributes{
 	protected int xPos;
@@ -18,6 +27,8 @@ abstract public class ChessPiece implements ChessAttributes{
 	private final int START_POINTX = 0;//Starting point of grid location
 	private final int START_POINTY = 0;
 	private Rectangle grid;
+
+	private String promotion;
 
 	public ChessPiece(int xPos, int yPos, String name, String color, String gridColor){
 		this.xPos = xPos;
@@ -122,7 +133,7 @@ abstract public class ChessPiece implements ChessAttributes{
 	public boolean getCheck(){
 		return check;
 	}
-	
+
 	public void setHasMoved(boolean hasMoved){
 		this.hasMoved = hasMoved;
 	}
@@ -135,7 +146,7 @@ abstract public class ChessPiece implements ChessAttributes{
 		int newX = piece.getX();
 		int newY = piece.getY();
 		String newGridColor = piece.getGridColor();
-		
+
 		chess.remove(piece);
 		Blank blank = new Blank(this.getX(),this.getY(),"Blank","Blank",this.getGridColor());
 		chess.add(blank);
@@ -144,7 +155,7 @@ abstract public class ChessPiece implements ChessAttributes{
 		this.setY(newY);
 		this.setGridColor(newGridColor);
 		this.setHasMoved(true);
-		
+
 		if(castle && this.getName().equals(("King"))){//This is for castling swaps the rook with a blank
 			ChessAttributes rook = null, swap = null;
 			if(this.getX() == 6){
@@ -157,28 +168,99 @@ abstract public class ChessPiece implements ChessAttributes{
 			}
 			rook.swapInfo(swap, chess);
 		}
-	}
 
+		if(this.getName().equals("Pawn") &&(this.getColor().equals("White") && this.getY() == 0 || this.getColor().equals("Black") && this.getY() == 7)){//For Pawn Promotion
+			JButton queenButton = new JButton("Queen");
+			JButton bishopButton = new JButton("Bishop");
+			JButton rookButton = new JButton("Rook");
+			JButton knightButton = new JButton("Knight");
+			JFrame frame = new JFrame("Pawn Promotion");
+			JLabel text = new JLabel("               Choose Piece to Promote Pawn!!!               ");
+			promotion = "Queen";
+
+			class PromotionListener implements ActionListener{
+				public void actionPerformed(ActionEvent event) {
+					promotion = event.getActionCommand();
+					ChessAttributes piece = getChessPiece(chess, getX(), getY());
+					piece.promote(chess, piece, promotion);
+					frame.dispose();
+				}
+			}
+	
+			PromotionListener buttonlistener = new PromotionListener();
+			queenButton.addActionListener(buttonlistener);
+			rookButton.addActionListener(buttonlistener);
+			knightButton.addActionListener(buttonlistener);
+			bishopButton.addActionListener(buttonlistener);
+
+			frame.setLayout(new FlowLayout());
+			frame.setSize(320, 100);
+			frame.add(text); 
+			frame.add(queenButton);
+			frame.add(rookButton);
+			frame.add(knightButton);
+			frame.add(bishopButton);
+			frame.setVisible(true);
+			
+			class WindowListen implements WindowListener {//If user closes Promotion GUI, goes to Default Queen
+				public void windowClosing(WindowEvent arg0) {//Window is Closing
+					ChessAttributes piece = getChessPiece(chess, getX(), getY());
+					piece.promote(chess, piece, "Queen");
+					frame.dispose();
+				}
+				
+				public void windowActivated(WindowEvent arg0) {}
+				public void windowClosed(WindowEvent arg0) {}
+				public void windowDeactivated(WindowEvent arg0) {}
+				public void windowDeiconified(WindowEvent arg0) {}
+				public void windowIconified(WindowEvent arg0) {}
+				public void windowOpened(WindowEvent arg0) {}
+			}
+			WindowListen window = new WindowListen();
+			frame.addWindowListener(window);
+		}
+	}
+	
+	public void promote(ArrayList<ChessAttributes> chess, ChessAttributes piece, String promotion){
+		if(promotion.equals("Queen")){
+			Queen queen = new Queen(this.getX(),this.getY(),"Queen",this.getColor(),this.getGridColor());
+			chess.add(queen);
+		}
+		else if( promotion.equals("Rook")){
+			Rook rook = new Rook(this.getX(),this.getY(),"Rook",this.getColor(),this.getGridColor());
+			chess.add(rook);
+		}
+		else if( promotion.equals("Knight")){
+			Knight knight = new Knight(this.getX(),this.getY(),"Knight",this.getColor(),this.getGridColor());
+			chess.add(knight);
+		}
+		else if( promotion.equals("Bishop")){
+			Bishop bishop = new Bishop(this.getX(),this.getY(),"Bishop",this.getColor(),this.getGridColor());
+			chess.add(bishop);
+		}
+		chess.remove(piece);
+	}
+	
 	public void kingCheck(ArrayList<ChessAttributes> chess){
 		for(ChessAttributes piece: chess){
 			temp = piece.nextMoveSet(chess);
 		}
-		
+
 		kingInCheck = new ArrayList<ChessAttributes>();
-		
+
 		for(ChessAttributes piece: chess){
 			if(piece.getCheck()){
 				kingInCheck.add(piece);
 			}
 		}
-		
+
 		if(kingInCheck != null)
 			for(ChessAttributes piece: kingInCheck)
 				System.out.println(piece.getX() + " " + piece.getY() + piece.getName() + piece.getColor());	
 		else
 			System.out.println("There is None");
 	}
-	
+
 	public void kingCheck(ChessAttributes c, ChessAttributes piece){
 		if(piece.getName().equals("King")){
 			this.setCheck(true);
