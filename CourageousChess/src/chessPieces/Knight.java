@@ -11,14 +11,6 @@ public class Knight extends ChessPiece{
 		super(x,y, name, color, gridColor);
 	}
 
-	public void move() {
-
-	}
-
-	public boolean collide(ChessAttributes other) {
-		return false;
-	}
-
 	public void draw(Graphics2D g2, int gridSize) {
 		super.draw(g2, gridSize);
 	}
