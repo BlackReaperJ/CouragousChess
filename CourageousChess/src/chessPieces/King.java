@@ -27,24 +27,24 @@ public class King extends ChessPiece{
 		
 		//Rectangle rect = new Rectangle((xPos * gridSize) + (gridSize/3), (yPos * gridSize) + (gridSize/3), gridSize/3, gridSize/3);
 		Polygon poly = new Polygon();
-		poly.addPoint((xPos * gridSize) + 5*(gridSize/16),(yPos * gridSize) + 6*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 7*(gridSize/16),(yPos * gridSize) + 9*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 9*(gridSize/16),(yPos * gridSize) + 5*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 11*(gridSize/16),(yPos * gridSize) + 9*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 13*(gridSize/16),(yPos * gridSize) + 6*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 12*(gridSize/16),(yPos * gridSize) + 11*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 6*(gridSize/16),(yPos * gridSize) + 11*(gridSize/16));
-		Rectangle rect = new Rectangle((xPos * gridSize) + 6*(gridSize/16),(yPos * gridSize) + 12*(gridSize/16), 11*(gridSize/16) - 5*(gridSize/16), gridSize/16);
+		poly.addPoint((xPos * gridSize) + 4*(gridSize/16),(yPos * gridSize) + 5*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 6*(gridSize/16),(yPos * gridSize) + 8*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 8*(gridSize/16),(yPos * gridSize) + 4*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 10*(gridSize/16),(yPos * gridSize) + 8*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 12*(gridSize/16),(yPos * gridSize) + 5*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 11*(gridSize/16),(yPos * gridSize) + 10*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 5*(gridSize/16),(yPos * gridSize) + 10*(gridSize/16));
+		Rectangle rect = new Rectangle((xPos * gridSize) + 5*(gridSize/16),(yPos * gridSize) + 11*(gridSize/16), 10*(gridSize/16) - 4*(gridSize/16), gridSize/16);
 		if (color.equals("Black")) //RED = BLACK BLUE = WHITE
-			g2.setColor(Color.RED); 
+			g2.setColor(Color.BLACK); 
 		else
-			g2.setColor(Color.BLUE);
+			g2.setColor(Color.WHITE);
 		g2.fillPolygon(poly);
 		g2.fill(rect);
 		if (color.equals("Black"))
-			g2.setColor(Color.BLUE); 
+			g2.setColor(Color.WHITE); 
 		else
-			g2.setColor(Color.RED);
+			g2.setColor(Color.BLACK);
 		g2.drawPolygon(poly);
 		g2.draw(rect);
 	}
