@@ -1,6 +1,9 @@
 package chessPieces;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Polygon;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public class King extends ChessPiece{
@@ -21,6 +24,29 @@ public class King extends ChessPiece{
 
 	public void draw(Graphics2D g2, int gridSize) {
 		super.draw(g2, gridSize);
+		
+		//Rectangle rect = new Rectangle((xPos * gridSize) + (gridSize/3), (yPos * gridSize) + (gridSize/3), gridSize/3, gridSize/3);
+		Polygon poly = new Polygon();
+		poly.addPoint((xPos * gridSize) + 4*(gridSize/16),(yPos * gridSize) + 5*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 6*(gridSize/16),(yPos * gridSize) + 8*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 8*(gridSize/16),(yPos * gridSize) + 4*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 10*(gridSize/16),(yPos * gridSize) + 8*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 12*(gridSize/16),(yPos * gridSize) + 5*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 11*(gridSize/16),(yPos * gridSize) + 10*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 5*(gridSize/16),(yPos * gridSize) + 10*(gridSize/16));
+		Rectangle rect = new Rectangle((xPos * gridSize) + 5*(gridSize/16),(yPos * gridSize) + 24*(gridSize/32), 11*(gridSize/16) - 5*(gridSize/16), gridSize/16);
+		if (color.equals("Black")) //RED = BLACK BLUE = WHITE
+			g2.setColor(Color.RED); 
+		else
+			g2.setColor(Color.BLUE);
+		g2.fillPolygon(poly);
+		g2.fill(rect);
+		if (color.equals("Black"))
+			g2.setColor(Color.BLUE); 
+		else
+			g2.setColor(Color.RED);
+		g2.drawPolygon(poly);
+		g2.draw(rect);
 	}
 
 	public ArrayList<ChessAttributes> nextMoveSet(ArrayList<ChessAttributes> chess) {
