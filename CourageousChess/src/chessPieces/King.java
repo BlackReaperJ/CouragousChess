@@ -36,15 +36,15 @@ public class King extends ChessPiece{
 		poly.addPoint((xPos * gridSize) + 6*(gridSize/16),(yPos * gridSize) + 11*(gridSize/16));
 		Rectangle rect = new Rectangle((xPos * gridSize) + 6*(gridSize/16),(yPos * gridSize) + 26*(gridSize/32), 11*(gridSize/16) - 5*(gridSize/16), gridSize/16);
 		if (color.equals("Black")) //RED = BLACK BLUE = WHITE
-			g2.setColor(Color.RED); 
+			g2.setColor(Color.BLACK); 
 		else
-			g2.setColor(Color.BLUE);
+			g2.setColor(Color.WHITE);
 		g2.fillPolygon(poly);
 		g2.fill(rect);
 		if (color.equals("Black"))
-			g2.setColor(Color.BLUE); 
+			g2.setColor(Color.WHITE); 
 		else
-			g2.setColor(Color.RED);
+			g2.setColor(Color.BLACK);
 		g2.drawPolygon(poly);
 		g2.draw(rect);
 	}

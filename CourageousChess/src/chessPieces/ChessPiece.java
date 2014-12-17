@@ -95,8 +95,8 @@ abstract public class ChessPiece implements ChessAttributes{
 		locationY = gridSize * yPos + START_POINTY;
 		grid = new Rectangle(locationX, locationY, gridSize, gridSize);
 
-		if(gridColor.equals("White")) g2.setColor(Color.WHITE);
-		else if(gridColor.equals("Black")) g2.setColor(Color.BLACK);
+		if(gridColor.equals("White")) g2.setColor(Color.LIGHT_GRAY);
+		else if(gridColor.equals("Black")) g2.setColor(Color.DARK_GRAY);
 
 		if(selected)
 			g2.setColor(Color.CYAN);
