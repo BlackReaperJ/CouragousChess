@@ -27,14 +27,14 @@ public class King extends ChessPiece{
 		
 		//Rectangle rect = new Rectangle((xPos * gridSize) + (gridSize/3), (yPos * gridSize) + (gridSize/3), gridSize/3, gridSize/3);
 		Polygon poly = new Polygon();
-		poly.addPoint((xPos * gridSize) + 4*(gridSize/16),(yPos * gridSize) + 5*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 6*(gridSize/16),(yPos * gridSize) + 8*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 8*(gridSize/16),(yPos * gridSize) + 4*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 10*(gridSize/16),(yPos * gridSize) + 8*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 12*(gridSize/16),(yPos * gridSize) + 5*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 11*(gridSize/16),(yPos * gridSize) + 10*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 5*(gridSize/16),(yPos * gridSize) + 10*(gridSize/16));
-		Rectangle rect = new Rectangle((xPos * gridSize) + 5*(gridSize/16),(yPos * gridSize) + 24*(gridSize/32), 11*(gridSize/16) - 5*(gridSize/16), gridSize/16);
+		poly.addPoint((xPos * gridSize) + 5*(gridSize/16),(yPos * gridSize) + 6*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 7*(gridSize/16),(yPos * gridSize) + 9*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 9*(gridSize/16),(yPos * gridSize) + 5*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 11*(gridSize/16),(yPos * gridSize) + 9*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 13*(gridSize/16),(yPos * gridSize) + 6*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 12*(gridSize/16),(yPos * gridSize) + 11*(gridSize/16));
+		poly.addPoint((xPos * gridSize) + 6*(gridSize/16),(yPos * gridSize) + 11*(gridSize/16));
+		Rectangle rect = new Rectangle((xPos * gridSize) + 6*(gridSize/16),(yPos * gridSize) + 26*(gridSize/32), 11*(gridSize/16) - 5*(gridSize/16), gridSize/16);
 		if (color.equals("Black")) //RED = BLACK BLUE = WHITE
 			g2.setColor(Color.RED); 
 		else
