@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class King extends ChessPiece{
 
 	private int [] paths = {-1,-1, -1, 1, 1, -1, 1, 1, 0, -1, 0, 1, 1, 0, -1, 0};
-
+	
 	public King(int x, int y, String name, String color, String gridColor) {
 		super(x,y, name, color, gridColor);
 	}
@@ -25,27 +25,66 @@ public class King extends ChessPiece{
 	public void draw(Graphics2D g2, int gridSize) {
 		super.draw(g2, gridSize);
 		
-		//Rectangle rect = new Rectangle((xPos * gridSize) + (gridSize/3), (yPos * gridSize) + (gridSize/3), gridSize/3, gridSize/3);
-		Polygon poly = new Polygon();
-		poly.addPoint((xPos * gridSize) + 4*(gridSize/16),(yPos * gridSize) + 5*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 6*(gridSize/16),(yPos * gridSize) + 8*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 8*(gridSize/16),(yPos * gridSize) + 4*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 10*(gridSize/16),(yPos * gridSize) + 8*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 12*(gridSize/16),(yPos * gridSize) + 5*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 11*(gridSize/16),(yPos * gridSize) + 10*(gridSize/16));
-		poly.addPoint((xPos * gridSize) + 5*(gridSize/16),(yPos * gridSize) + 10*(gridSize/16));
-		Rectangle rect = new Rectangle((xPos * gridSize) + 5*(gridSize/16),(yPos * gridSize) + 11*(gridSize/16), 10*(gridSize/16) - 4*(gridSize/16), gridSize/16);
+		/*Draw Main Body*/
+		Polygon mainBody = new Polygon();
+		mainBody.addPoint((int)(locationX + 5.5*(gridSize/32.0)),(int)(locationY + 13*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 11.5*(gridSize/32.0)),(int)(locationY + 17*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 16*(gridSize/32.0)),(int)(locationY + 9.5*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 21.5*(gridSize/32.0)),(int)(locationY + 17*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 27.5*(gridSize/32.0)),(int)(locationY + 13*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 23.5*(gridSize/32.0)),(int)(locationY + 25*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 8.5*(gridSize/32.0)),(int)(locationY + 25*(gridSize/32.0)));
+		
+		/*Draw Bottom Portion*/
+		Rectangle rect = new Rectangle((int)(locationX + 8.5*(gridSize/32.0)),(int)(locationY + 26.5*(gridSize/32.0)), (int)(24*(gridSize/32.0) - 9*(gridSize/32.0)), (int)(2*(gridSize/32.0)));
+		
+		/*Draw topLeft*/
+		Polygon topLeft = new Polygon();
+		topLeft.addPoint((int)(locationX + 11.5*(gridSize/32.0)),(int)(locationY + 17*(gridSize/32.0)));
+		topLeft.addPoint((int)(locationX + 9.5*(gridSize/32.0)),(int)(locationY + 15.5*(gridSize/32.0)));
+		topLeft.addPoint((int)(locationX + 9.5*(gridSize/32.0)),(int)(locationY + 13*(gridSize/32.0)));
+		topLeft.addPoint((int)(locationX + 13*(gridSize/32.0)),(int)(locationY + 14.5*(gridSize/32.0)));
+		
+		/*Draw topRight*/
+		Polygon topRight = new Polygon();
+		topRight.addPoint((int)(locationX + 21.4*(gridSize/32.0)),(int)(locationY + 17*(gridSize/32.0)));
+		topRight.addPoint((int)(locationX + 23.4*(gridSize/32.0)),(int)(locationY + 15.5*(gridSize/32.0)));
+		topRight.addPoint((int)(locationX + 23.4*(gridSize/32.0)),(int)(locationY + 13*(gridSize/32.0)));
+		topRight.addPoint((int)(locationX + 19.9*(gridSize/32.0)),(int)(locationY + 14.5*(gridSize/32.0)));
+
+		/*Draw cross*/
+		Polygon cross = new Polygon();
+		cross.addPoint((int)(locationX + 15*(gridSize/32.0)),(int)(locationY + 9.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 17*(gridSize/32.0)),(int)(locationY + 9.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 17*(gridSize/32.0)),(int)(locationY + 5.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 19*(gridSize/32.0)),(int)(locationY + 5.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 19*(gridSize/32.0)),(int)(locationY + 3.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 17*(gridSize/32.0)),(int)(locationY + 3.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 17*(gridSize/32.0)),(int)(locationY + 1.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 15*(gridSize/32.0)),(int)(locationY + 1.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 15*(gridSize/32.0)),(int)(locationY + 3.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 13*(gridSize/32.0)),(int)(locationY + 3.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 13*(gridSize/32.0)),(int)(locationY + 5.5*(gridSize/32.0)));
+		cross.addPoint((int)(locationX + 15*(gridSize/32.0)),(int)(locationY + 5.5*(gridSize/32.0)));
+
+		
 		if (color.equals("Black")) //RED = BLACK BLUE = WHITE
 			g2.setColor(Color.BLACK); 
 		else
 			g2.setColor(Color.WHITE);
-		g2.fillPolygon(poly);
+		g2.fillPolygon(mainBody);
+		g2.fillPolygon(topLeft);
+		g2.fillPolygon(topRight);
+		g2.fillPolygon(cross);
 		g2.fill(rect);
 		if (color.equals("Black"))
 			g2.setColor(Color.WHITE); 
 		else
 			g2.setColor(Color.BLACK);
-		g2.drawPolygon(poly);
+		g2.drawPolygon(mainBody);
+		g2.drawPolygon(topLeft);
+		g2.drawPolygon(topRight);
+		g2.drawPolygon(cross);
 		g2.draw(rect);
 	}
 
