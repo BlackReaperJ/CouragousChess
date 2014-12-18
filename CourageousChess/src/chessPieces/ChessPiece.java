@@ -167,6 +167,7 @@ abstract public class ChessPiece implements ChessAttributes{
 				swap = getChessPiece(chess, xPos+1, yPos);
 			}
 			rook.swapInfo(swap, chess);
+			castle = false;
 		}
 
 		if(this.getName().equals("Pawn") &&(this.getColor().equals("White") && this.getY() == 0 || this.getColor().equals("Black") && this.getY() == 7)){//For Pawn Promotion
