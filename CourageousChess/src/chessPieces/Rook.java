@@ -10,14 +10,6 @@ public class Rook extends ChessPiece{
 	public Rook(int x, int y, String name, String color, String gridColor) {
 		super(x,y, name, color, gridColor);
 	}
-	
-	public void move() {
-
-	}
-
-	public boolean collide(ChessAttributes other) {
-		return false;
-	}
 
 	public void draw(Graphics2D g2, int gridSize) {
 		super.draw(g2, gridSize);

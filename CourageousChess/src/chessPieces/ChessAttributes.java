@@ -4,8 +4,6 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public interface ChessAttributes {
-	void move(); 
-	boolean collide(ChessAttributes other); 
 	boolean contains(int x, int y); 
 	void draw(Graphics2D g2, int gridSize);
 	int getX();
