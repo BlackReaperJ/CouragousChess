@@ -97,7 +97,7 @@ public class King extends ChessPiece{
 			ChessAttributes temp = getChessPiece(chess, xPos+1, yPos);
 			ChessAttributes temp2 = getChessPiece(chess, xPos+2, yPos);
 
-			if(rookCastle.getName().equals("Rook") && !(rookCastle.getHasMoved()) && temp.getName().equals("Blank") && temp2.getName().equals("Blank")){
+			if(rookCastle.getName().equals("Rook") && rookCastle.getColor().equals(this.getColor()) && !(rookCastle.getHasMoved()) && temp.getName().equals("Blank") && temp2.getName().equals("Blank")){
 				temp2.setSelected(true);
 				castle = true;
 			}
@@ -106,7 +106,7 @@ public class King extends ChessPiece{
 			temp2 = getChessPiece(chess, xPos-2, yPos);
 			ChessAttributes temp3 = getChessPiece(chess, xPos-1, yPos);
 			
-			if(rookCastle.getName().equals("Rook") && !(rookCastle.getHasMoved()) && temp.getName().equals("Blank") && temp2.getName().equals("Blank") && temp3.getName().equals("Blank")){
+			if(rookCastle.getName().equals("Rook") && rookCastle.getColor().equals(this.getColor()) && !(rookCastle.getHasMoved()) && temp.getName().equals("Blank") && temp2.getName().equals("Blank") && temp3.getName().equals("Blank")){
 				temp2.setSelected(true);
 				castle = true;
 			}

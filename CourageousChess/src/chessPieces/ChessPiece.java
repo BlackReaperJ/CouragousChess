@@ -156,17 +156,18 @@ abstract public class ChessPiece implements ChessAttributes{
 		this.setGridColor(newGridColor);
 		this.setHasMoved(true);
 
-		if(castle && this.getName().equals(("King"))){//This is for castling swaps the rook with a blank
+		if(castle && this.getName().equals(("King")) ){//This is for castling swaps the rook with a blank
 			ChessAttributes rook = null, swap = null;
 			if(this.getX() == 6){
 				rook = getChessPiece(chess, xPos+1, yPos);
 				swap = getChessPiece(chess, xPos-1, yPos);
+				rook.swapInfo(swap, chess);
 			}
 			else if(this.getX() == 2){
 				rook = getChessPiece(chess, xPos-2, yPos);
 				swap = getChessPiece(chess, xPos+1, yPos);
+				rook.swapInfo(swap, chess);
 			}
-			rook.swapInfo(swap, chess);
 			castle = false;
 		}
 
