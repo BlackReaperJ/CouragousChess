@@ -224,23 +224,30 @@ abstract public class ChessPiece implements ChessAttributes{
 	}
 	
 	public void promote(ArrayList<ChessAttributes> chess, ChessAttributes piece, String promotion){
+		chess.remove(piece);
 		if(promotion.equals("Queen")){
 			Queen queen = new Queen(this.getX(),this.getY(),"Queen",this.getColor(),this.getGridColor());
 			chess.add(queen);
+			queen.kingCheck(chess);
 		}
 		else if( promotion.equals("Rook")){
 			Rook rook = new Rook(this.getX(),this.getY(),"Rook",this.getColor(),this.getGridColor());
 			chess.add(rook);
+			rook.kingCheck(chess);
 		}
 		else if( promotion.equals("Knight")){
 			Knight knight = new Knight(this.getX(),this.getY(),"Knight",this.getColor(),this.getGridColor());
 			chess.add(knight);
+			knight.kingCheck(chess);
 		}
 		else if( promotion.equals("Bishop")){
 			Bishop bishop = new Bishop(this.getX(),this.getY(),"Bishop",this.getColor(),this.getGridColor());
 			chess.add(bishop);
+			bishop.kingCheck(chess);
 		}
-		chess.remove(piece);
+		for(ChessAttributes c: chess){
+			c.setSelected(false);
+		}
 	}
 	
 	public void kingCheck(ArrayList<ChessAttributes> chess){
