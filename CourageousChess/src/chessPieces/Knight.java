@@ -83,8 +83,7 @@ public class Knight extends ChessPiece{
 		g2.fillPolygon(mouth);
 		g2.fill(eye);
 		g2.fill(ear);
-		//g2.fillPolygon(topRight);
-		//g2.fillPolygon(cross);
+		
 		if (color.equals("Black"))
 			g2.setColor(Color.WHITE); 
 		else
@@ -101,11 +100,6 @@ public class Knight extends ChessPiece{
 		g2.drawPolygon(hair_6);
 		g2.drawPolygon(hair_7);
 		g2.drawPolygon(ear);
-		/*for (int k = 0; k < 12; k ++) {
-			g2.fillPolygon(hair[k]);
-		}*/
-		//g2.drawPolygon(topRight);
-		//g2.drawPolygon(cross);
 	}
 
 	public ArrayList<ChessAttributes> nextMoveSet(ArrayList<ChessAttributes> chess) {
