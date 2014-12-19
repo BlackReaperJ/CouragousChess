@@ -137,13 +137,13 @@ public class ChessPanel extends JPanel{
 			piece.draw(g2, (int)gridSize);
 		}
 
-		g2.setColor(Color.BLUE);
+/**		g2.setColor(Color.BLUE);
 		for(ChessAttributes piece: chess){	
 			if(!(piece.getName().equals("Blank"))){
 				g2.drawString(piece.getColor(), (int)(piece.getX() * gridSize + 0.33 * gridSize), (int)(piece.getY() * gridSize + 0.5 * gridSize));
 				g2.drawString(piece.getName(), (int)(piece.getX() * gridSize + 0.33 * gridSize), (int)(piece.getY() * gridSize + 0.66 * gridSize));
 			}
-		}
+		}*/
 		
 		int [] xTri = {(int)(GRID * gridSize + gridSize * 0.03),(int)(GRID * gridSize + gridSize * 0.25),(int)(GRID * gridSize + gridSize * 0.25)};
 		int [] yTriWhite = {(int)( GRID * gridSize - gridSize * 0.5),(int)(GRID * gridSize - gridSize * 0.25),(int)( GRID * gridSize - gridSize * 0.75)};
