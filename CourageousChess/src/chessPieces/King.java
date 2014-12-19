@@ -69,6 +69,7 @@ public class King extends ChessPiece{
 		g2.fillPolygon(topRight);
 		g2.fillPolygon(cross);
 		g2.fill(rect);
+		
 		if (color.equals("Black"))
 			g2.setColor(Color.WHITE); 
 		else
