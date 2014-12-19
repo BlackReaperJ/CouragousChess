@@ -39,8 +39,8 @@ public class Rook extends ChessPiece{
 		mainBody.addPoint((int)(locationX + 21*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
 		mainBody.addPoint((int)(locationX + 22*(gridSize/32.0)),(int)(locationY + 24.5*(gridSize/32.0)));
 		mainBody.addPoint((int)(locationX + 22*(gridSize/32.0)),(int)(locationY + 25.5*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 24.5*(gridSize/32.0)),(int)(locationY + 27.5*(gridSize/32.0)));//Bottom Right Corner
-		mainBody.addPoint((int)(locationX + 7.5*(gridSize/32.0)),(int)(locationY + 27.5*(gridSize/32.0)));//Bottom Left Corner
+		mainBody.addPoint((int)(locationX + 24.5*(gridSize/32.0)),(int)(locationY + 28*(gridSize/32.0)));//Bottom Right Corner
+		mainBody.addPoint((int)(locationX + 7.5*(gridSize/32.0)),(int)(locationY + 28*(gridSize/32.0)));//Bottom Left Corner
 		mainBody.addPoint((int)(locationX + 10*(gridSize/32.0)),(int)(locationY + 25.5*(gridSize/32.0)));
 		mainBody.addPoint((int)(locationX + 10*(gridSize/32.0)),(int)(locationY + 24.5*(gridSize/32.0)));
 		mainBody.addPoint((int)(locationX + 11*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));

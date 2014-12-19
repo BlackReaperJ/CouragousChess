@@ -59,8 +59,7 @@ public class King extends ChessPiece{
 		cross.addPoint((int)(locationX + 13*(gridSize/32.0)),(int)(locationY + 5.5*(gridSize/32.0)));
 		cross.addPoint((int)(locationX + 15*(gridSize/32.0)),(int)(locationY + 5.5*(gridSize/32.0)));
 
-		
-		if (color.equals("Black")) //RED = BLACK BLUE = WHITE
+		if (color.equals("Black")) 
 			g2.setColor(Color.BLACK); 
 		else
 			g2.setColor(Color.WHITE);
