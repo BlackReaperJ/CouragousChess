@@ -19,40 +19,42 @@ public class Rook extends ChessPiece{
 		
 		/*Draw Main Body*/
 		Polygon mainBody = new Polygon();
-		mainBody.addPoint((int)(locationX + 9*(gridSize/32.0)),(int)(locationY + 13*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 9*(gridSize/32.0)),(int)(locationY + 7*(gridSize/32.0)));//Left tower
-		mainBody.addPoint((int)(locationX + 11*(gridSize/32.0)),(int)(locationY + 7*(gridSize/32.0)));//Left Tower
-		mainBody.addPoint((int)(locationX + 11*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 13*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 13*(gridSize/32.0)),(int)(locationY + 7*(gridSize/32.0)));//LeftCenter Tower
-		mainBody.addPoint((int)(locationX + 15*(gridSize/32.0)),(int)(locationY + 7*(gridSize/32.0)));//LeftCenter Tower
-		mainBody.addPoint((int)(locationX + 15*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 17*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 17*(gridSize/32.0)),(int)(locationY + 7*(gridSize/32.0)));//Right Center Tower
-		mainBody.addPoint((int)(locationX + 19*(gridSize/32.0)),(int)(locationY + 7*(gridSize/32.0)));//Right Center Tower
-		mainBody.addPoint((int)(locationX + 19*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 21*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 21*(gridSize/32.0)),(int)(locationY + 7*(gridSize/32.0)));//Right Tower
-		mainBody.addPoint((int)(locationX + 23*(gridSize/32.0)),(int)(locationY + 7*(gridSize/32.0)));//Right Tower
-		mainBody.addPoint((int)(locationX + 23*(gridSize/32.0)),(int)(locationY + 13*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 5.5*(gridSize/32.0)),(int)(locationY + 12.5*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 5.5*(gridSize/32.0)),(int)(locationY + 6*(gridSize/32.0)));//Left tower
+		mainBody.addPoint((int)(locationX + 8.5*(gridSize/32.0)),(int)(locationY + 6*(gridSize/32.0)));//Left Tower
+		mainBody.addPoint((int)(locationX + 8.5*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 11.5*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 11.5*(gridSize/32.0)),(int)(locationY + 6*(gridSize/32.0)));//LeftCenter Tower
+		mainBody.addPoint((int)(locationX + 14.5*(gridSize/32.0)),(int)(locationY + 6*(gridSize/32.0)));//LeftCenter Tower
+		mainBody.addPoint((int)(locationX + 14.5*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 17.5*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 17.5*(gridSize/32.0)),(int)(locationY + 6*(gridSize/32.0)));//Right Center Tower
+		mainBody.addPoint((int)(locationX + 20.5*(gridSize/32.0)),(int)(locationY + 6*(gridSize/32.0)));//Right Center Tower
+		mainBody.addPoint((int)(locationX + 20.5*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 23.5*(gridSize/32.0)),(int)(locationY + 9*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 23.5*(gridSize/32.0)),(int)(locationY + 6*(gridSize/32.0)));//Right Tower
+		mainBody.addPoint((int)(locationX + 26.5*(gridSize/32.0)),(int)(locationY + 6*(gridSize/32.0)));//Right Tower
+		mainBody.addPoint((int)(locationX + 26.5*(gridSize/32.0)),(int)(locationY + 12.5*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 23.5*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
 		mainBody.addPoint((int)(locationX + 21*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 20*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 21*(gridSize/32.0)),(int)(locationY + 25*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 22*(gridSize/32.0)),(int)(locationY + 26*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 10*(gridSize/32.0)),(int)(locationY + 26*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 11*(gridSize/32.0)),(int)(locationY + 25*(gridSize/32.0)));
-		mainBody.addPoint((int)(locationX + 12*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 22*(gridSize/32.0)),(int)(locationY + 24.5*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 22*(gridSize/32.0)),(int)(locationY + 25.5*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 24.5*(gridSize/32.0)),(int)(locationY + 27.5*(gridSize/32.0)));//Bottom Right Corner
+		mainBody.addPoint((int)(locationX + 7.5*(gridSize/32.0)),(int)(locationY + 27.5*(gridSize/32.0)));//Bottom Left Corner
+		mainBody.addPoint((int)(locationX + 10*(gridSize/32.0)),(int)(locationY + 25.5*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 10*(gridSize/32.0)),(int)(locationY + 24.5*(gridSize/32.0)));
 		mainBody.addPoint((int)(locationX + 11*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
+		mainBody.addPoint((int)(locationX + 8.5*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
 		
 		// Draw top trapezoid
 		Polygon topTrapezoid = new Polygon();
-		topTrapezoid.addPoint((int)(locationX + 23*(gridSize/32.0)),(int)(locationY + 13*(gridSize/32.0)));
-		topTrapezoid.addPoint((int)(locationX + 21*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
-		topTrapezoid.addPoint((int)(locationX + 11*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
-		topTrapezoid.addPoint((int)(locationX + 9*(gridSize/32.0)),(int)(locationY + 13*(gridSize/32.0)));
+		topTrapezoid.addPoint((int)(locationX + 26.5*(gridSize/32.0)),(int)(locationY + 12.5*(gridSize/32.0)));
+		topTrapezoid.addPoint((int)(locationX + 23.5*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
+		topTrapezoid.addPoint((int)(locationX + 8.5*(gridSize/32.0)),(int)(locationY + 14*(gridSize/32.0)));
+		topTrapezoid.addPoint((int)(locationX + 5.5*(gridSize/32.0)),(int)(locationY + 12.5*(gridSize/32.0)));
 		
 		//Draw Bottom Rectangle
-		Rectangle rect = new Rectangle((int)(locationX + 11*(gridSize/32.0)),(int)(locationY + 24*(gridSize/32.0)),(int)(21*(gridSize/32.0))- (int)(11*(gridSize/32.0)),(int)(1*(gridSize/32.0)));
+		Rectangle rect = new Rectangle((int)(locationX + 10*(gridSize/32.0)),(int)(locationY + 24.5*(gridSize/32.0)),(int)(22*(gridSize/32.0))- (int)(10*(gridSize/32.0)),(int)(1.5*(gridSize/32.0)));
 		
 		if (color.equals("Black")) 
 			g2.setColor(Color.BLACK); 
